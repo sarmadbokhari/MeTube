@@ -3,11 +3,15 @@ Metube::Application.routes.draw do
 
   resources :videos do
     resources :comments, :only => [:create]
+    # POST /videos/:video_id/comments
+  end
+
+  resources :sounds do
+    resources :comments, :only => [:create]
+    # POST /sounds/:sound_id/comments
   end
 
   resource :comments, :only => [:update, :delete]
-
-  resources :sounds
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
